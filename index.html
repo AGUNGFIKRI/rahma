@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Love, Rahma 💕 - A Gallery of Our Memories</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="assets/image/logo/logo-favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Cinematic Entry -->
+    <div class="cinematic-entry" id="cinematicEntry">
+      <div class="cinematic-text">
+        <h1>Untukmu, Rahma...</h1>
+        <div class="cinematic-heart">💕</div>
+      </div>
+    </div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader-content">
+        <div class="heart-pulse">💞</div>
+        <p>Loading love for Rahma 💞</p>
+        <div class="loading-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Love Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Floating Memory Bubbles Container -->
+    <div class="floating-bubbles" id="floatingBubbles"></div>
+
+    <!-- Theme Toggle Buttons -->
+    <div class="theme-controls">
+      <button class="theme-toggle" id="themeToggle" title="Ganti Tema">
+        <i class="fas fa-palette"></i>
+      </button>
+      <button class="night-mode-toggle" id="nightModeToggle" title="Night Romantic Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+
+    <!-- Music Controls -->
+    <div class="music-controls">
+      <button class="music-toggle" id="musicToggle" title="Musik">
+        <i class="fas fa-music"></i>
+      </button>
+      <div class="music-selector" id="musicSelector">
+        <button data-mood="sweet" class="mood-btn active" title="Sweet Love">
+          <i class="fas fa-heart"></i>
+        </button>
+        <button data-mood="cheerful" class="mood-btn" title="Cheerful Date">
+          <i class="fas fa-smile"></i>
+        </button>
+        <button data-mood="dreamy" class="mood-btn" title="Dreamy Night">
+          <i class="fas fa-cloud-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Voice Message Button -->
+    <!-- <button class="voice-message-btn" id="voiceMessageBtn" title="Pesan dari Agung">
+      <i class="fas fa-microphone"></i>
+    </button> -->
+
+    <!-- Countdown Timer -->
+    <div class="countdown-container" id="countdownContainer">
+      <div class="countdown-content">
+        <h3>Hitung Mundur ke Tanggal Spesial Kita 💞</h3>
+        <div class="countdown-timer">
+          <div class="time-unit">
+            <span id="days">00</span>
+            <label>Hari</label>
+          </div>
+          <div class="time-unit">
+            <span id="hours">00</span>
+            <label>Jam</label>
+          </div>
+          <div class="time-unit">
+            <span id="minutes">00</span>
+            <label>Menit</label>
+          </div>
+          <div class="time-unit">
+            <span id="seconds">00</span>
+            <label>Detik</label>
+          </div>
+        </div>
+        <p class="countdown-message" id="countdownMessage"></p>
+      </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="backgroundMusic" loop>
+      <source src="assets/music/Banda.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-heart"></i>
+          <span>For Rahma 💕</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#memory" class="nav-link">Memory</a></li>
+          <li><a href="#message" class="nav-link">Message</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-particles" id="heroParticles"></div>
+      <div class="sparkles" id="sparkles"></div>
+      <div class="hero-content">
+        <h1 class="hero-title floating-text">Untukmu, Rahma 💕</h1>
+        <p class="hero-subtitle fade-in-text">Galeri kenangan penuh cinta dari Agung, untuk seseorang yang istimewa.</p>
+        <button class="hero-btn" id="heroBtn">
+          <span>Bunga Jatuh</span>
+          <i class="fas fa-heart"></i>
+        </button>
+      </div>
+      <div class="hero-shapes">
+        <div class="floating-heart heart-1">💕</div>
+        <div class="floating-heart heart-2">💖</div>
+        <div class="floating-heart heart-3">💗</div>
+        <div class="floating-heart heart-4">💝</div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title fade-in">Tentang Kita</h2>
+        <div class="about-content">
+          <div class="about-text fade-in">
+            <h3>💕 Kisah Cinta Ini</h3>
+            <p>Setiap foto di sini adalah potongan waktu yang membuatku tersenyum. Rahma, semoga kamu bisa merasakan betapa berartinya kamu bagiku di setiap kenangan yang tertulis di sini.</p>
+            <p>Website ini adalah wujud dari rasa syukurku karena bertemu denganmu dalam hidup. Setiap momen bersamamu adalah anugerah yang tak ternilai harganya.</p>
+            <div class="love-stats">
+              <div class="love-stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Cinta untukmu</span>
+              </div>
+              <div class="love-stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Memikirkanmu</span>
+              </div>
+              <div class="love-stat">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Rahma di hatiku</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image fade-in">
+            <div class="image-wrapper">
+              <img src="assets/image/18.jpg" alt="Rahma" />
+              <div class="image-overlay">
+                <i class="fas fa-heart"></i>
+                <h4>My Everything</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Love Letter Reveal Section -->
+    <section class="love-letter-section">
+      <div class="container">
+        <button class="love-letter-btn" id="loveLetterBtn">
+          <i class="fas fa-envelope"></i>
+          <span>💌 Pesan Rahasia untuk Rahma</span>
+        </button>
+        <div class="love-letter" id="loveLetter">
+          <div class="envelope">
+            <div class="letter-content">
+              <h3>Surat Cinta untuk Rahma 💕</h3>
+              <p>
+                Sayangku Rahma,<br /><br />
+
+                Kalau bintang bisa menulis, mungkin mereka akan menuliskan namamu di langit malamku.<br />
+                Kalau angin bisa bercerita, mungkin ia akan menyanyikan betapa indahnya senyummu.<br /><br />
+
+                Setiap hari bersamamu adalah petualangan yang aku tak ingin akhiri.<br />
+                Setiap detik di bersamamu adalah kenangan yang aku simpan rapat-rapat.<br /><br />
+
+                Terima kasih sudah menjadi cahaya dalam hidupku, Rahma.<br />
+                Aku mencintaimu lebih dari kata-kata bisa ungkapkan.<br /><br />
+
+                Selamanya dari,<br />
+                Agung 💕
+              </p>
+              <div class="letter-signature">
+                <span>With all my love,</span>
+                <span class="signature-name">Agung</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <h2 class="section-title fade-in">Galeri Kenangan Kita</h2>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-item fade-in" data-caption="Ini adalah Senyum Pertama Aku liat kamu.">
+            <img src="assets/image/1.jpg" alt="Memory 1" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Senyum Pertama</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Ini Pertama Kali Kita Ketemu.">
+            <img src="assets/image/3.jpg" alt="Memory 2" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>First Date</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Foto Berdua Dengan kamu hihi.">
+            <img src="assets/image/7.jpg" alt="Memory 3" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>ini foto penuh dengan senyum</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Ini Foto kita berdua ketika main ke Tebing Kraton.">
+            <img src="assets/image/11.jpg" alt="Memory 4" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Tebing Kraton</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="ini adalah bidadari dan pangeran hahahaa..">
+            <img src="assets/image/5.jpg" alt="Memory 5" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Di Dago</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Cantik Banget Ini bidadari ku.">
+            <img src="assets/image/12.jpg" alt="Memory 6" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Beautiful Just one for me</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Ini adalah gelang cople kita hihi.">
+            <img src="assets/image/4.jpg" alt="Memory 7" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Gengam Erat yaa</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Ini adalah Foto kita berdua wkwk.">
+            <img src="assets/image/6.jpg" alt="Memory 8" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Bikti Berdua Di antara kita</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Rahma Manis bangettttttt ih.">
+            <img src="assets/image/8.jpg" alt="Memory 9" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Foto Berdua</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Di jalan rahma suka pelukkkkk erat dan foto foto wkwk..">
+            <img src="assets/image/10.jpg" alt="Memory 10" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Agung Ga suka di foto di jalan yaa :/</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption=" Ini Foto box kita waktu kamu lulus..">
+            <img src="assets/image/13.jpg" alt="Memory 11" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Foto Box Ketika kamu lulus.</h4>
+            </div>
+          </div>
+          <div class="gallery-item fade-in" data-caption="Couple yaa bajunya merah merah ..">
+            <img src="assets/image/17.jpg" alt="Memory 12" class="gallery-img" />
+            <div class="gallery-overlay">
+              <i class="fas fa-heart"></i>
+              <h4>Foto Box Ketka Agung Lulus.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Memory Timeline Section -->
+    <section id="memory" class="memory">
+      <div class="container">
+        <h2 class="section-title fade-in">Timeline Cinta Kita</h2>
+        <div class="timeline">
+          <div class="timeline-item fade-in">
+            <div class="timeline-icon">💕</div>
+            <div class="timeline-content">
+              <h3>Pertama Kali Bertemu</h3>
+              <p>Pertama Kali kita kenal di online terus kamu kasih pap pertama kamu foto bocilku, haha, aku hilang hilangan.</p>
+              <span class="timeline-date">Awal dari segalanya</span>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-icon">🌹</div>
+            <div class="timeline-content">
+              <h3>Awal Kita Main</h3>
+              <p>Waktu itu kita aku jemput di rumah nene, aku inget banget pertama kali kita main ke sarijadi malem malem, terus di pertigaan sari jadi aku dan kamu makan, itu jadi bukti pertama kali kita ketemu yaa.</p>
+              <span class="timeline-date">Awal Main</span>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-icon">💝</div>
+            <div class="timeline-content">
+              <h3>Tanggal 22 Oktober 2021</h3>
+              <p>Rahma menggunkapkan Perasaanya selama ini, dia ngerasa kalau agung gantung dia, dan dia mau kepastian, dan agung pertama kali untuk memulai pacaran dan dia pun ragu tapi nyatanya dia bisa ko sampai sekarang</p>
+              <span class="timeline-date">Waktunya Jadian</span>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-icon">💖</div>
+            <div class="timeline-content">
+              <h3>Cinta Pertama Agung</h3>
+              <p>
+                Agung masih ragu dengan rahma awal awal. dia masih suka bales chat dll, dia pikir itu gapapa, dia pikir itu bukan salah, tapi rahma dengan sabar ingetin agung kalau itu ga boleh di lakuin dan penuh kasih sayang rahma rangkul
+                agung..
+              </p>
+              <span class="timeline-date">Membuat Agung Luluh</span>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-icon">🫶</div>
+            <div class="timeline-content">
+              <h3>Agung Dan Rahma</h3>
+              <p>
+                Hobi kita berdua adalah jalan jalan, makan makanm, foto foto, pokoknya seru deh, kita juga suka banget ngobrolin masa depan kita, kita suka banget rencana rencanain masa depan kita, pokoknya aku bahagia banget deh sama kamu
+                rahma..
+              </p>
+              <span class="timeline-date">Komunikasi Penting</span>
+            </div>
+          </div>
+          <div class="timeline-item fade-in">
+            <div class="timeline-icon">🌟</div>
+            <div class="timeline-content">
+              <h3>Masa Depan Kita</h3>
+              <p>Bersama menggarungi kehidupan, menghadapi segalanya. kita rancang lagi yuu pelan pelan bagaimana akhir cerita ini, semoga terus bareng kamu, Love You Rahma.</p>
+              <span class="timeline-date">Tak terbatas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Message Section -->
+    <section id="message" class="message">
+      <div class="container">
+        <h2 class="section-title fade-in">Testimoni Cinta 💌</h2>
+        <div class="message-slider">
+          <div class="message-card active">
+            <div class="message-content">
+              <i class="fas fa-quote-left"></i>
+              <p>Rahma, setiap hari bersamamu adalah hadiah terindah yang pernah aku terima. Kamu adalah alasan aku tersenyum setiap pagi.</p>
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <div class="message-author">
+              <span>From Agung's Heart 💕</span>
+            </div>
+          </div>
+          <div class="message-card">
+            <div class="message-content">
+              <i class="fas fa-quote-left"></i>
+              <p>Kalau cinta bisa disimpan dalam website, ini adalah repositorinya 💕 Setiap pixel mewakili rasa cinta yang tak terhingga untukmu.</p>
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <div class="message-author">
+              <span>From Agung's Heart 💕</span>
+            </div>
+          </div>
+          <div class="message-card">
+            <div class="message-content">
+              <i class="fas fa-quote-left"></i>
+              <p>Dulu aku tak percaya pada cinta lewat sosmed, tapi kemudian aku menemukanu dan aku jatuh cinta setiap saat.</p>
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <div class="message-author">
+              <span>From Agung's Heart 💕</span>
+            </div>
+          </div>
+          <div class="message-card">
+            <div class="message-content">
+              <i class="fas fa-quote-left"></i>
+              <p>Kamu bukan hanya bagian dari hidupku, kamu adalah hidupku itu sendiri. Terima kasih sudah menjadi Rahma-nya Agung.</p>
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <div class="message-author">
+              <span>From Agung's Heart 💕</span>
+            </div>
+          </div>
+        </div>
+        <div class="message-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+          <span class="dot" data-slide="3"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Love Quiz Section -->
+    <section class="love-quiz">
+      <div class="container">
+        <h2 class="section-title fade-in">Love Quiz for Rahma 💕</h2>
+        <div class="quiz-container" id="quizContainer">
+          <div class="quiz-question">
+            <h3>Kapan pertama kali kita kenal? 💕</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-answer="wrong">3 tahun lalu</button>
+              <button class="quiz-option" data-answer="correct">Hari yang tak terlupakan</button>
+              <button class="quiz-option" data-answer="wrong">hari paling menyebalkan di hidup ku</button>
+            </div>
+          </div>
+          <div class="quiz-result" id="quizResult"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title fade-in">Hubungi Aku, Rahma 💕</h2>
+        <div class="contact-content">
+          <div class="contact-info fade-in">
+            <h3>💌 Kirim Pesan Cinta</h3>
+            <p>Rahma, jika ada pesan yang ingin kamu sampaikan, aku selalu menantikan kata-kata indah darimu.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-heart"></i>
+                <span>Always here for you</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>Ready to hear your voice</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>agung.loves.Rahma@email.com</span>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="#" class="social-link" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+              </a>
+              <a href="#" class="social-link" title="Pinterest">
+                <i class="fab fa-pinterest"></i>
+              </a>
+              <a href="#" class="social-link" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+          <form class="contact-form fade-in" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Nama cantikmu" required />
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Email sayang" required />
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" placeholder="Pesan cinta untuk Agung..." rows="5" required></textarea>
+              <i class="fas fa-comment-heart"></i>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span>Kirim Pesan Cinta</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Gift Box Easter Egg -->
+    <div class="gift-box" id="giftBox">
+      <div class="gift-lid"></div>
+      <div class="gift-body">
+        <i class="fas fa-gift"></i>
+      </div>
+    </div>
+    <div class="gift-surprise" id="giftSurprise">
+      <div class="surprise-content">
+        <h3>🎉 Kejutan Spesial untuk Rahma! 🎉</h3>
+        <p>Yey Rahma kalau kamu baca ini, kamu adalah bidadari ku, semua mahluk di dunia ini ga ada yang kaya kamu, iya lah ga ada, soalnya kamu kan bidadari</p>
+        <div class="surprise-image">
+          <img src="assets/image/1.jpg" alt="Surprise for Rahma" />
+        </div>
+        <button class="close-surprise" id="closeSurprise">Tutup</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="wave">
+        <svg viewBox="0 0 1440 320">
+          <path
+            fill="#FFC0CB"
+            fill-opacity="0.3"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="footer-content">
+        <p class="footer-main">© 2025 With Love by Agung for Rahma 💖</p>
+        <p class="footer-sub">Every moment with you is a treasure 💕</p>
+        <div class="footer-hearts">
+          <span class="beating-heart">💕</span>
+          <span class="beating-heart" style="animation-delay: 0.5s">💖</span>
+          <span class="beating-heart" style="animation-delay: 1s">💗</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-content">
+        <span class="lightbox-close">×</span>
+        <img src="" alt="" class="lightbox-img" />
+        <div class="lightbox-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      <i class="fas fa-heart"></i>
+      <p>Pesan cinta Anda terkirim! 💕</p>
+    </div>
+
+    <!-- Floating Compliment -->
+    <div class="floating-compliment" id="floatingCompliment"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
